@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Product search</string>
+    <string name="search_button">Search</string>
+    <string name="search_textInput_hint">Enter product name</string>
+    <string name="scan_button">Scan</string>
+    <string name="search_textView">Search for products</string>
+    <string name="scan_textView">Scan for product</string>
 </resources>
