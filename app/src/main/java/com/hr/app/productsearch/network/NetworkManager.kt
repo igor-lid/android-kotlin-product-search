@@ -5,13 +5,17 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object NetworkManager {
     private const val BASE_URL: String = "https://world.openfoodfacts.org/"
-    private var retrofit: Retrofit? = null
+    private var retrofit: Retrofit
 
     init {
         retrofit = Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(provideConverterFactory())
             .build()
+    }
+
+    public fun getRetrofit(): Retrofit? {
+        return retrofit
     }
 
     private fun provideConverterFactory(): GsonConverterFactory {
