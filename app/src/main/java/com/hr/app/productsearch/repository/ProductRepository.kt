@@ -4,17 +4,41 @@ import androidx.lifecycle.MutableLiveData
 import com.hr.app.productsearch.model.Product
 import com.hr.app.productsearch.network.NetworkManager
 import com.hr.app.productsearch.network.response.ProductScannedResponse
+import com.hr.app.productsearch.network.response.ProductSearchResponse
 import com.hr.app.productsearch.network.services.ProductService
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 object ProductRepository {
+    private const val SEARCH_SIMPLE: String = "1"
+    private const val ACTION: String = "process"
+    private const val JSON: String = "1"
+
     private var productsLiveData: MutableLiveData<List<Product>> = MutableLiveData()
     private var productService: ProductService? = NetworkManager.getRetrofit()?.create(ProductService::class.java)
 
+    // Find products by search
+    public fun getProducts(productName: String): MutableLiveData<List<Product>> {
+        val call: Call<ProductSearchResponse>? = productService?.getProducts(productName, SEARCH_SIMPLE, ACTION, JSON)
 
+        call?.enqueue(object : Callback<ProductSearchResponse> {
+            override fun onResponse(call: Call<ProductSearchResponse>?, response: Response<ProductSearchResponse>?) {
+                if (response?.code() == 200) {
+                    val productResponseBody = response.body()!!
+                    productsLiveData.postValue(productResponseBody.products)
+                }
+            }
 
+            override fun onFailure(call: Call<ProductSearchResponse>?, t: Throwable?) {
+                println(t?.message)
+            }
+        })
+
+        return productsLiveData
+    }
+
+    // Find product by scanning a barcode
     public fun getProduct(barcode: String): MutableLiveData<List<Product>> {
         val call: Call<ProductScannedResponse>? = productService?.getProduct(barcode)
 
@@ -23,7 +47,6 @@ object ProductRepository {
                 if (response?.code() == 200) {
                     val productResponseBody = response.body()!!
                     productsLiveData.postValue(listOf(productResponseBody.product))
-                    // println(productResponseBody)
                 }
             }
 
@@ -33,5 +56,15 @@ object ProductRepository {
         })
 
         return productsLiveData
+    }
+
+    // Get specific product by id
+    public fun getProductById(id: String): Product? {
+        for (product in productsLiveData.value!!.iterator()) {
+            if (product.id.equals(id)) {
+                return product
+            }
+        }
+        return null
     }
 }
