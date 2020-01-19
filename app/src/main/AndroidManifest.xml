@@ -16,8 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".screen.products.ProductsActivity" />
         <activity android:name=".screen.login.SignInActivity" />
+        <activity android:name=".screen.products.ProductsActivity" />
+        <activity android:name=".screen.productdetails.ProductDetailsActivity" />
     </application>
     <uses-permission android:name="android.permission.INTERNET"/>
 

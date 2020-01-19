@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.hr.app.productsearch.R
+import com.hr.app.productsearch.screen.productdetails.ProductDetailsActivity
 
 class ProductFragment : Fragment() {
     private lateinit var productsViewModel: ProductsViewModel
@@ -33,6 +34,10 @@ class ProductFragment : Fragment() {
         productsRecyclerViewAdapter = ProductsRecyclerViewAdapter()
 
         productsRecyclerView.adapter = productsRecyclerViewAdapter
+
+        productsRecyclerViewAdapter.onItemClick = {
+            ProductDetailsActivity.start(context, it.id)
+        }
     }
 
     override fun onStart() {

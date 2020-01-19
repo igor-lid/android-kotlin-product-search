@@ -11,7 +11,7 @@ import com.hr.app.productsearch.model.Product
 import kotlinx.android.synthetic.main.rv_item_product.view.*
 
 class ProductsRecyclerViewAdapter : RecyclerView.Adapter<ProductsRecyclerViewAdapter.ProductsViewHolder>() {
-    val onItemClick: ((Product) -> Unit)? = null
+    var onItemClick: ((Product) -> Unit)? = null
     var products: List<Product> = ArrayList()
     set(value) {
         field = value

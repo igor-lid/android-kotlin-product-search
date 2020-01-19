@@ -12,6 +12,7 @@ data class Product (
     @SerializedName("product_name")
     val productName: String?,
 
+    @SerializedName("_id")
     val id: String?,
     val brands: String?,
     val quantity: String?,
