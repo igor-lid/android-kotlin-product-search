@@ -15,17 +15,21 @@ object ProductRepository {
     private const val ACTION: String = "process"
     private const val JSON: String = "1"
 
-    private var productsLiveData: MutableLiveData<List<Product>> = MutableLiveData()
-    private var productService: ProductService? = NetworkManager.getRetrofit()?.create(ProductService::class.java)
+    var searchValue: String = "Milka"
+    val scannedValue: String = ""
+
+    var productsLiveData: MutableLiveData<List<Product>> = MutableLiveData()
+    var productService: ProductService? = NetworkManager.getRetrofit()?.create(ProductService::class.java)
 
     // Find products by search
-    public fun getProducts(productName: String): MutableLiveData<List<Product>> {
-        val call: Call<ProductSearchResponse>? = productService?.getProducts(productName, SEARCH_SIMPLE, ACTION, JSON)
+    public fun getProducts(): MutableLiveData<List<Product>> {
+        val call: Call<ProductSearchResponse>? = productService?.getProducts(searchValue, SEARCH_SIMPLE, ACTION, JSON)
 
         call?.enqueue(object : Callback<ProductSearchResponse> {
             override fun onResponse(call: Call<ProductSearchResponse>?, response: Response<ProductSearchResponse>?) {
                 if (response?.code() == 200) {
                     val productResponseBody = response.body()!!
+                    println(productResponseBody)
                     productsLiveData.postValue(productResponseBody.products)
                 }
             }
@@ -39,8 +43,8 @@ object ProductRepository {
     }
 
     // Find product by scanning a barcode
-    public fun getProduct(barcode: String): MutableLiveData<List<Product>> {
-        val call: Call<ProductScannedResponse>? = productService?.getProduct(barcode)
+    public fun getProduct(): MutableLiveData<List<Product>> {
+        val call: Call<ProductScannedResponse>? = productService?.getProduct(scannedValue)
 
         call?.enqueue(object : Callback<ProductScannedResponse> {
             override fun onResponse(call: Call<ProductScannedResponse>?, response: Response<ProductScannedResponse>?) {

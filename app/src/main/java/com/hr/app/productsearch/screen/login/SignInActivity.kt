@@ -13,8 +13,5 @@ class SignInActivity : AppCompatActivity() {
 
         // Hide action bar
         if (supportActionBar != null) supportActionBar?.hide()
-
-        // TESTING
-        println(ProductRepository.getProduct("737628064502"))
     }
 }
