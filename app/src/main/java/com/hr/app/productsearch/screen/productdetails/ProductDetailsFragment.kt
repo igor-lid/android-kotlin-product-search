@@ -52,6 +52,9 @@ class ProductDetailsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         if (productId == null) {
+            productDetailsViewModel.getProduct().observe(this, Observer {
+                setupView(view, it[0])
+            })
             return
         }
 

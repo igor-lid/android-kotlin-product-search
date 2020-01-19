@@ -3,10 +3,16 @@ package com.hr.app.productsearch
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import com.google.zxing.integration.android.IntentIntegrator
+import com.google.zxing.integration.android.IntentResult
 import com.hr.app.productsearch.repository.ProductRepository
+import com.hr.app.productsearch.scanner.Scanner
+import com.hr.app.productsearch.screen.productdetails.ProductDetailsActivity
 import com.hr.app.productsearch.screen.products.ProductsActivity
 import com.hr.app.productsearch.utils.Utils
 import kotlinx.android.synthetic.main.activity_main.*
+import java.lang.Exception
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,6 +24,11 @@ class MainActivity : AppCompatActivity() {
         if (supportActionBar != null) supportActionBar?.hide()
 
         setupOnClickListeners()
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        Scanner.startScanner(requestCode, resultCode, data, mainLayout)
     }
 
     private fun setupOnClickListeners() {
@@ -38,7 +49,12 @@ class MainActivity : AppCompatActivity() {
 
             clearInputs()
         }
+
+        scan_button.setOnClickListener {
+            IntentIntegrator(this).setOrientationLocked(true).initiateScan()
+        }
     }
+
     private fun clearInputs() {
         search_textInput.text?.clear()
     }

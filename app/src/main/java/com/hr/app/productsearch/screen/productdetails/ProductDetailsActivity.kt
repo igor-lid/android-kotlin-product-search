@@ -30,6 +30,15 @@ class ProductDetailsActivity : AppCompatActivity() {
         // Hide action bar
         if (supportActionBar != null) supportActionBar?.hide()
 
+        if (intent.extras == null) {
+            supportFragmentManager
+                .beginTransaction()
+                .add(R.id.activityProductDetailsLayout, ProductDetailsFragment.instance(), "product-details")
+                .commit()
+
+            return
+        }
+
         val productId: String = intent.getStringExtra("PRODUCT_ID")
         supportFragmentManager
             .beginTransaction()

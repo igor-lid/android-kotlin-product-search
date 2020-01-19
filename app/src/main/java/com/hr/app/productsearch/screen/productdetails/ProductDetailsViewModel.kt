@@ -14,4 +14,8 @@ class ProductDetailsViewModel : ViewModel() {
 
         return productLiveData
     }
+
+    fun getProduct(): MutableLiveData<List<Product>> {
+        return ProductRepository.getProduct()
+    }
 }

@@ -15,8 +15,8 @@ object ProductRepository {
     private const val ACTION: String = "process"
     private const val JSON: String = "1"
 
-    var searchValue: String = "Milka"
-    val scannedValue: String = ""
+    var searchValue: String = ""
+    var scannedValue: String = ""
 
     var productsLiveData: MutableLiveData<List<Product>> = MutableLiveData()
     var productService: ProductService? = NetworkManager.getRetrofit()?.create(ProductService::class.java)
@@ -50,6 +50,10 @@ object ProductRepository {
             override fun onResponse(call: Call<ProductScannedResponse>?, response: Response<ProductScannedResponse>?) {
                 if (response?.code() == 200) {
                     val productResponseBody = response.body()!!
+                    println(productResponseBody)
+                    if (productResponseBody.status == 0) {
+                        return
+                    }
                     productsLiveData.postValue(listOf(productResponseBody.product))
                 }
             }
