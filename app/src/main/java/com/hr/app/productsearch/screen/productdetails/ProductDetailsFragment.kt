@@ -11,6 +11,7 @@ import com.bumptech.glide.Glide
 import com.hr.app.productsearch.R
 import com.hr.app.productsearch.model.Product
 import kotlinx.android.synthetic.main.fragment_product_details.*
+import java.text.MessageFormat
 
 class ProductDetailsFragment : Fragment() {
     private lateinit var productDetailsViewModel: ProductDetailsViewModel
@@ -72,7 +73,13 @@ class ProductDetailsFragment : Fragment() {
             .into(productDetailsNutritionImage)
 
         productNameDetailsTextView.text = product.productName
-        productBrandDetailsTextView.text = product.brands
-        productQuantityDetailsTextView.text = product.quantity
+        productBrandDetailsTextView.text = resources.getString(R.string.product_brand_textView, product.brands)
+        productQuantityDetailsTextView.text = resources.getString(R.string.product_quantity_textView, product.quantity)
+        productCaloriesDetailsTextView.text = resources.getString(R.string.product_calories_textView, product.nutriments?.energyKcal100g.toString())
+        productEnergyDetailsTextView.text = resources.getString(R.string.product_energy_textView, product.nutriments?.energy.toString())
+
+        productProteinDetailsTextView.text = product.nutriments?.proteins100g.toString()
+        productCarbsDetailsTextView.text = product.nutriments?.carbohydrates100g.toString()
+        productFatDetailsTextView.text = product.nutriments?.fat100g.toString()
     }
 }
