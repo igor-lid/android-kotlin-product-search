@@ -4,7 +4,7 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
-              tools:context=".screen.products.ProductsActivity">
+              tools:context=".screen.products.ProductsActivity" android:background="@color/colorBackground">
 
     <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/productsRecyclerView"
