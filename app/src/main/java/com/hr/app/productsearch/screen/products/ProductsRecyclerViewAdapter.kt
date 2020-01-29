@@ -47,10 +47,6 @@ class ProductsRecyclerViewAdapter : RecyclerView.Adapter<ProductsRecyclerViewAda
             .placeholder(R.drawable.ic_launcher_background)
             .into(holder.productImageView)
 
-//        holder.itemView.productNameTextView.text = if (product.productName.equals("")) product.productName else "unknown"
-//        holder.itemView.productBrandTextView.text = if (product.brands.equals("")) product.brands else "unknown"
-//        holder.itemView.productQuantityTextView.text = if (product.quantity.equals("")) product.quantity else "unknown"
-
         holder.itemView.productNameTextView.text = product.productName
         holder.itemView.productBrandTextView.text = product.brands
         holder.itemView.productQuantityTextView.text = product.quantity

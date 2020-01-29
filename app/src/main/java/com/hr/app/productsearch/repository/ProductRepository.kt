@@ -1,11 +1,15 @@
 package com.hr.app.productsearch.repository
 
 import androidx.lifecycle.MutableLiveData
+import com.google.android.material.snackbar.Snackbar
+import com.hr.app.productsearch.R
 import com.hr.app.productsearch.model.Product
 import com.hr.app.productsearch.network.NetworkManager
 import com.hr.app.productsearch.network.response.ProductScannedResponse
 import com.hr.app.productsearch.network.response.ProductSearchResponse
 import com.hr.app.productsearch.network.services.ProductService
+import com.hr.app.productsearch.utils.Utils
+import kotlinx.android.synthetic.main.activity_main.view.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
