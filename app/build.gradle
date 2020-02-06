@@ -32,6 +32,9 @@ dependencies {
     androidTestImplementation "androidx.test:runner:$testRunnerVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espressoCoreVersion"
 
+    // Google
+    implementation "com.google.android.gms:play-services-auth:$playServicesAuth"
+
     // ViewModel
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycleVersion"
 
