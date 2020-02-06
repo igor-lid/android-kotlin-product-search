@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:gravity="center"
+              android:background="@color/colorBackground">
+
+    <LinearLayout android:layout_width="300dp"
+                  android:layout_height="wrap_content"
+                  android:layout_margin="20dp"
+                  android:orientation="vertical"
+                  android:gravity="center">
+
+        <!-- SEARCH CARD-->
+        <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical" android:gravity="center" android:padding="20dp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_height="100dp"
+                        android:layout_width="100dp"
+                        android:src="@drawable/ic_search"
+                        android:layout_marginBottom="40dp"/>
+
+                <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/welcome_title_textView"
+                        android:fontFamily="@font"
+                        android:textStyle="bold"
+                        android:textColor="@color/design_default_color_on_secondary"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                        android:textSize="32sp"
+                        android:layout_marginBottom="16dp"
+                        android:textAlignment="center"/>
+
+                <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/welcome_message_textView"
+                        android:fontFamily="@font"
+                        android:textStyle="bold"
+                        android:textColor="@color/design_default_color_on_secondary"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                        android:textSize="16sp"
+                        android:layout_marginBottom="40dp"
+                        android:textAlignment="center"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/login_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/signin_button"/>
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+</LinearLayout>

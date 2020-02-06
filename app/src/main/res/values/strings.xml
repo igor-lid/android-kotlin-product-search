@@ -1,3 +1,25 @@
 <resources>
     <string name="app_name">Product search</string>
+
+    <!-- HOME ACTIVITY -->
+    <string name="search_button">Search</string>
+    <string name="search_textInput_hint">Enter product name</string>
+    <string name="scan_button">Scan</string>
+    <string name="search_textView">Search for products</string>
+    <string name="scan_textView">Scan for product</string>
+
+    <!-- LOGIN ACTIVITY -->
+    <string name="signin_button">Sign in with Google</string>
+    <string name="welcome_title_textView">Welcome</string>
+    <string name="welcome_message_textView">Thank you for using this app. Please sign in with your Google account</string>
+
+    <!-- PRODUCT DETAILS -->
+    <string name="product_brand_textView">Brand: %1$s</string>
+    <string name="product_quantity_textView">Quantity: %1$s</string>
+    <string name="product_calories_textView">Calories (100g): %1$s kcal</string>
+    <string name="product_energy_textView">Energy (100g): %1$s kJ</string>
+    <string name="product_protein_textView">Protein (100g)</string>
+    <string name="product_carbs_textView">Carbohydrates (100g)</string>
+    <string name="product_fat_textView">Fat (100g)</string>
+
 </resources>

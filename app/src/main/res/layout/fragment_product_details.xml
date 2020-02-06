@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/productDetailsFragment"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="8dp">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/productDetailsImage"
+                android:layout_height="200dp"
+                android:layout_width="match_parent"
+                android:padding="8dp"
+                android:scaleType="fitCenter"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/productDetailsNutritionImage"
+                android:layout_height="200dp"
+                android:layout_width="match_parent"
+                android:padding="8dp"
+                android:scaleType="fitCenter"/>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:orientation="vertical">
+
+            <TextView
+                    android:id="@+id/productNameDetailsTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/design_default_color_secondary"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="4dp"
+                    android:text="Product name"/>
+
+            <TextView
+                    android:id="@+id/productBrandDetailsTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
+                    android:layout_marginBottom="4dp"
+                    android:textSize="16sp"
+                    android:text="@string/product_brand_textView"/>
+
+            <TextView
+                    android:id="@+id/productQuantityDetailsTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
+                    android:layout_marginBottom="4dp"
+                    android:textSize="16sp"
+                    android:text="@string/product_quantity_textView"/>
+
+            <TextView
+                    android:id="@+id/productCaloriesDetailsTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
+                    android:layout_marginBottom="4dp"
+                    android:textSize="16sp"
+                    android:text="@string/product_calories_textView"/>
+
+            <TextView
+                    android:id="@+id/productEnergyDetailsTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    android:text="@string/product_energy_textView"/>
+        </LinearLayout>
+
+        <!-- NUTRIMENTS PART-->
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_gravity="center">
+
+            <!-- PROTEIN -->
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp"
+                        android:text="@string/product_protein_textView"/>
+                <TextView
+                        android:id="@+id/productProteinDetailsTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/design_default_color_secondary"
+                        android:textStyle="bold"
+                        android:textAlignment="center"
+                        android:textSize="16sp"/>
+            </LinearLayout>
+
+            <!-- DIVIDER -->
+            <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@color/design_default_color_on_secondary" />
+
+            <!-- CARBS -->
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp"
+                        android:text="@string/product_carbs_textView"/>
+                <TextView
+                        android:id="@+id/productCarbsDetailsTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAlignment="center"
+                        android:textStyle="bold"
+                        android:textColor="@color/design_default_color_secondary"
+                        android:textSize="16sp"/>
+            </LinearLayout>
+
+            <!-- DIVIDER -->
+            <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@color/design_default_color_on_secondary" />
+
+            <!-- FATS -->
+            <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@android:color/black"
+                        android:textSize="16sp"
+                        android:text="@string/product_fat_textView"/>
+                <TextView
+                        android:id="@+id/productFatDetailsTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/design_default_color_secondary"
+                        android:textStyle="bold"
+                        android:textAlignment="center"
+                        android:textSize="16sp"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>
